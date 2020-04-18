@@ -1,7 +1,7 @@
 {
   "name": "SymatemExplorer",
   "version": "0.0.0-semantic-release",
-  "description": "browse thourgh Symatem store ",
+  "description": "browse thourgh Symatem store",
   "keywords": [
     "symatem",
     "svelte",
