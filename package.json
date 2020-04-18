@@ -49,7 +49,7 @@
   "config": {
     "api": "/services/SymatemExplorer/api",
     "base": "/services/SymatemExplorer/",
-    "proxyTarget": "https://somewhere/"
+    "proxyTarget": "https://mfelten.dynv6.net/"
   },
   "pacman": {
     "groups": "service",
