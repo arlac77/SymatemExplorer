@@ -3,6 +3,7 @@
   "version": "0.0.0-semantic-release",
   "description": "browse thourgh Symatem store ",
   "keywords": [
+    "symatem",
     "svelte",
     "web"
   ],
@@ -58,7 +59,7 @@
     "proxyTarget": "https://somewhere/"
   },
   "pacman": {
-    "groups": "{{group}}",
+    "groups": "service",
     "installdir": "/services/SymatemExplorer/frontend",
     "hooks": "pacman/hooks.sh",
     "content": {
