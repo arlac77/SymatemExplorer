@@ -32,6 +32,12 @@ export const router = new Router(
   base
 );
 
+
+export async function fetchSymbols()
+{
+  return [];
+}
+
 export default new App({
   target: document.body
 });
