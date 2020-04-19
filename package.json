@@ -48,7 +48,7 @@
   "homepage": "https://github.com/arlac77/SymatemExplorer#readme",
   "config": {
     "api": "/services/entitlements/api",
-    "base": "/services/SymatemExplorer/",
+    "base": "/services/SymatemExplorer",
     "proxyTarget": "https://mfelten.dynv6.net/"
   },
   "pacman": {
