@@ -40,12 +40,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/symatemexplorer.git"
+    "url": "https://github.com/arlac77/SymatemExplorer.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/symatemexplorer/issues"
+    "url": "https://github.com/arlac77/SymatemExplorer/issues"
   },
-  "homepage": "https://github.com/arlac77/symatemexplorer#readme",
+  "homepage": "https://github.com/arlac77/SymatemExplorer#readme",
   "config": {
     "api": "/services/entitlements/api",
     "base": "/services/SymatemExplorer/",
