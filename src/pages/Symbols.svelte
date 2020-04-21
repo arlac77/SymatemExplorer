@@ -7,9 +7,9 @@
 
 {#await fetchSymbols()}
   <p>...fetching</p>
-{:then services}
+{:then symbols}
   <svg viewbox="0 0 100 100">
-    <g class="services">
+    <g>
     </g>
   </svg>
 {:catch error}
