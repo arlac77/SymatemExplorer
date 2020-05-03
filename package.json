@@ -1,11 +1,20 @@
 {
   "name": "SymatemExplorer",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "browse thourgh Symatem store",
   "keywords": [
     "symatem",
     "svelte",
     "web"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
   ],
   "license": "BSD-2-Clause",
   "scripts": {
@@ -80,7 +89,7 @@
   },
   "template": {
     "inheritFrom": [
-      "arlac77/template-github",
+      "arlac77/template-arlac77-github",
       "arlac77/template-svelte-app"
     ]
   }
