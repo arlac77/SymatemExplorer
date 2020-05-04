@@ -334,7 +334,8 @@ JSONStream@^1.0.4, JSONStream@^1.3.4, JSONStream@^1.3.5:
 
 "SymatemJS@git+https://github.com/Symatem/SymatemJS.git":
   version "0.0.0"
-  resolved "git+https://github.com/Symatem/SymatemJS.git#f3648fbb85d7bf6ac1ca26c75bdfe592485317d6"
+  uid bc385eb332a0cbb0ab4aae9a50df308f92c08127
+  resolved "git+https://github.com/Symatem/SymatemJS.git#bc385eb332a0cbb0ab4aae9a50df308f92c08127"
 
 abbrev@1, abbrev@~1.1.1:
   version "1.1.1"
