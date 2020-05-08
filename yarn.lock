@@ -3792,10 +3792,10 @@ npm-pick-manifest@^3.0.0, npm-pick-manifest@^3.0.2:
     npm-package-arg "^6.0.0"
     semver "^5.4.1"
 
-npm-pkgbuild@^6.11.18:
-  version "6.11.18"
-  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.11.18.tgz#0badd80cf3dd738f9ef414b609436016abd41a22"
-  integrity sha512-KRbSwForyqcrZwkqHZkDZAwyvJ+VKywMNf3j5y/kBgWboDPMPELFME9GZ7Xsc/WiZJGooTtts+5csAzJjgpSEQ==
+npm-pkgbuild@^6.11.19:
+  version "6.11.19"
+  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.11.19.tgz#b5c41b825d9f9ad6d6044fe20004487408c86e7b"
+  integrity sha512-hDFS2x9B0fpryI/W61fqgRQGERL84MzIuSDWyOZFz49Eg8vzW6fQNPpFIusm9c44HPep2iNqb2qKSigRGuYU3A==
   dependencies:
     commander "^5.0.0"
     execa "^4.0.0"
@@ -5332,10 +5332,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.8.0.tgz#a1d63fa8331f5c362f025a7fee78b86d4ada5cef"
-  integrity sha512-hyjpreMA0BTNrO68o4wCtcktwYTK8o1UtauOqsPniwDGzN2PvNaKmwa/RHmjNHJMrt6ItY2C7XjpT7TDf6WmJw==
+rollup@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.8.2.tgz#08427a8eb118e6e4ac8d80eba22774bc1d059c81"
+  integrity sha512-LRzMcB8V1M69pSvf6uCbR+W9OPCy5FuxcIwqioWg5RKidrrqKbzjJF9pEGXceaMVkbptNFZgIVJlUokCU0sfng==
   optionalDependencies:
     fsevents "~2.1.2"
 
