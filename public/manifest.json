@@ -10,5 +10,6 @@
       "sizes": "50x50",
       "purpose": "any"
     }
-  ]
+  ],
+  "short_name": "{{name}}"
 }
