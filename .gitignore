@@ -10,3 +10,5 @@ node_modules
 public/bundle.*
 *.js.map
 *.mjs.map
+bundle.*
+test-results
