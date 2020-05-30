@@ -3628,10 +3628,10 @@ ms@^2.0.0, ms@^2.1.1, ms@^2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-multi-path-matcher@^2.0.11:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/multi-path-matcher/-/multi-path-matcher-2.0.12.tgz#1de7ee0f285a984b7ff4cfd67e7e155a73743679"
-  integrity sha512-QsjSK7hgjjn/1kNvO2XX5tvvf7yC9NziLeAccVw7yfpO4V47qUWHzo9KAwsHpYiq9Pr2CqBJXlYEMy0X5cwmTA==
+multi-path-matcher@^2.0.14:
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/multi-path-matcher/-/multi-path-matcher-2.0.14.tgz#d325749a22a37eaa44ac9cd16df093c7d512383f"
+  integrity sha512-Dpr1eMimseRNqS1MU96vqMe2f+96e2MvtgBPwVX8rEaCx+3DN8TaTVhvJ/tEl4qDLFf1p+f2JOgHniCvnFXT7g==
 
 mute-stream@~0.0.4:
   version "0.0.8"
@@ -3827,10 +3827,10 @@ npm-pick-manifest@^3.0.0, npm-pick-manifest@^3.0.2:
     npm-package-arg "^6.0.0"
     semver "^5.4.1"
 
-npm-pkgbuild@^6.11.19:
-  version "6.11.19"
-  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.11.19.tgz#b5c41b825d9f9ad6d6044fe20004487408c86e7b"
-  integrity sha512-hDFS2x9B0fpryI/W61fqgRQGERL84MzIuSDWyOZFz49Eg8vzW6fQNPpFIusm9c44HPep2iNqb2qKSigRGuYU3A==
+npm-pkgbuild@^6.12.1:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.12.1.tgz#cc689199f04a95be51f4953959e6e7a68402a71d"
+  integrity sha512-weQzOe1A6rQRqMbhmFr09msJZWrgrMJSwGaQhtLgej1aJgxLnvCF/wQCkEnotR0SU4zJ7aDtv+rb53rFrtqfhw==
   dependencies:
     commander "^5.0.0"
     execa "^4.0.0"
@@ -5938,12 +5938,12 @@ svelte-common@^2.0.3:
   resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-2.0.3.tgz#1605ac9cea0803e536aa87d52a2d3abc8179fc6c"
   integrity sha512-U3yA3ZnLqV8RFYzPckiXnnfGfbOz5cpllddZE/NiBhJo575qhFnI63ccCJ3k/pxxvFZANFkUcJYLibvnYWhAOg==
 
-svelte-guard-history-router@^1.1.18:
-  version "1.1.18"
-  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-1.1.18.tgz#574bd036a53c68011600d60192a8359c6045a5e4"
-  integrity sha512-y5R/X+IJQ0XDdDe/hmQjfnlAEDH1nMoBrdhAJ4r0iX3iqsG+rVWlfAK6nLheF4pPBl+KnmEy/SHunPOEr8zr/Q==
+svelte-guard-history-router@^1.1.20:
+  version "1.1.20"
+  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-1.1.20.tgz#13b8c94079144b4e9fa7d1b3b70bcca61ab9211b"
+  integrity sha512-zz0xTz0TOsgUek8o0RcLfYusOB5vc4WRh1Sml4tk4xXjv6nkesMEkt5v+OlFA4SITJ6g+bZm6JeCsA2J87GD/g==
   dependencies:
-    multi-path-matcher "^2.0.11"
+    multi-path-matcher "^2.0.14"
 
 svelte-session-manager@^1.0.12:
   version "1.0.12"
