@@ -8,7 +8,6 @@ import Login from "./pages/Login.svelte";
 import App from "./App.svelte";
 import base from "consts:base";
 import {
-  loaded,
   Diff,
   SymbolInternals,
   RustWasmBackend,
@@ -44,9 +43,7 @@ export async function fetchSymbols() {
 }
 
 export async function fetchTriples() {
-  await loaded;
-
-  const backend = new RustWasmBackend();
+  const backend = await new RustWasmBackend();
 
   backend.initPredefinedSymbols();
 
