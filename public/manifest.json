@@ -11,5 +11,6 @@
       "sizes": "50x50",
       "purpose": "any"
     }
-  ]
+  ],
+  "background_color": "#ffffff"
 }
