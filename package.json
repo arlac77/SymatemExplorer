@@ -6,8 +6,8 @@
   },
   "description": "browse thourgh Symatem store",
   "keywords": [
-    "symatem",
     "svelte",
+    "symatem",
     "web"
   ],
   "contributors": [
