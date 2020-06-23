@@ -48,7 +48,7 @@
     "svelte": "^3.23.2"
   },
   "engines": {
-    "node": ">=14.3.0"
+    "node": ">=14.4.0"
   },
   "repository": {
     "type": "git",
@@ -74,7 +74,7 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "nginx-mainline": ">=1.17.10"
+      "nginx-mainline": ">=1.19.0"
     }
   },
   "release": {

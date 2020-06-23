@@ -1,4 +1,4 @@
-import { Router, route, NotFound, Guard } from "svelte-guard-history-router";
+import { Router, route, Guard } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import Home from "./pages/Home.svelte";
 import About from "./pages/About.svelte";
@@ -29,7 +29,6 @@ const needsSession = new SessionGuard();
 
 export const router = new Router(
   [
-    route("*", NotFound),
     route("/*", Home),
     route("/login", Login),
     route("/about", About),
