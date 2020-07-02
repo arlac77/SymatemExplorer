@@ -1,25 +1,34 @@
 <script>
   import * as style from "./main.css";
-  import { Outlet, link, active } from "svelte-guard-history-router";
+  import { Router, Route, Outlet, link, active } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
   import { router, session } from "./main.mjs";
+  import Home from "./pages/Home.svelte";
+  import About from "./pages/About.svelte";
+  import Triples from "./pages/Triples.svelte";
+  import Symbols from "./pages/Symbols.svelte";
+  import Login from "./pages/Login.svelte";
 
   function logout() {
     session.invalidate();
   }
 </script>
 
+<Router {router}>
 <nav>
-  <a href="/" use:link={router} use:active={router}>
+  <Route path="/" component={Home}>
     <img class="logo" src="logo.svg" alt="Symatem Explorer" />
     Symatem Explorer
   </a>
   <ul class="left">
     <li>
-      <a href="/symbols" use:link={router} use:active={router}>Symbols</a>
+      <Route path="/symbols" component={Symbols}>Symbols</Route>
     </li>
     <li>
-      <a href="/triples" use:link={router} use:active={router}>Triples</a>
+      <Route path="/triples" component={Triples}>Triples</Route>
+    </li>
+    <li>
+      <Route path="/about" component={About}>About</Route>
     </li>
   </ul>
   <ul>
@@ -36,11 +45,12 @@
           </div>
         </Menue>
       {:else}
-        <a href="/login" use:link={router} use:active={router}>Login</a>
+        <Route path="/login">Login</Route>
       {/if}
     </li>
   </ul>
 </nav>
 <main>
-  <Outlet {router} />
+  <Outlet/>
 </main>
+</Router>

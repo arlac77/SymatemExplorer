@@ -1,10 +1,5 @@
-import { Router, route, Guard } from "svelte-guard-history-router";
+import { BaseRouter, route, Guard } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
-import Home from "./pages/Home.svelte";
-import About from "./pages/About.svelte";
-import Triples from "./pages/Triples.svelte";
-import Symbols from "./pages/Symbols.svelte";
-import Login from "./pages/Login.svelte";
 import App from "./App.svelte";
 import base from "consts:base";
 import {
@@ -27,16 +22,7 @@ class SessionGuard extends Guard {
 
 const needsSession = new SessionGuard();
 
-export const router = new Router(
-  [
-    route("/*", Home),
-    route("/login", Login),
-    route("/about", About),
-    route("/symbols", needsSession, Symbols),
-    route("/triples", needsSession, Triples)
-  ],
-  base
-);
+export const router = new Router( [], base);
 
 export async function fetchSymbols() {
 }
