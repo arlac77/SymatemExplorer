@@ -22,7 +22,7 @@
 
 <Router {router}>
   <nav>
-    <Route path="/" component={Home}>
+    <Route href="/" path="*" component={Home}>
       <img class="logo" src="logo.svg" alt="Symatem Explorer" />
       Symatem Explorer
     </Route>
