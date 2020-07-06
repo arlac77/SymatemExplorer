@@ -1,4 +1,4 @@
-import { BaseRouter, Guard } from "svelte-guard-history-router";
+import { BaseRouter, Guard, IteratorStoreRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 import base from "consts:base";
@@ -21,7 +21,7 @@ export const router = new BaseRouter([], base);
 
 export async function fetchSymbols() {}
 
-export async function fetchTriples() {
+export async function * fetchTriples() {
   const backend = await new RustWasmBackend();
 
   backend.initPredefinedSymbols();
@@ -36,16 +36,19 @@ export async function fetchTriples() {
     backend.createSymbol(backend.metaNamespaceIdentity)
   );
 
-  const all = [];
   for (const t of backend.queryTriples(backend.queryMasks.VVV, [
     backend.symbolByName.Void,
     backend.symbolByName.Void,
     backend.symbolByName.Void
   ])) {
-    all.push(t);
+    yield t;
   }
+}
 
-  return all;
+export class TriplesRoute  extends IteratorStoreRoute {
+  async *iteratorFor() {
+    yield *fetchTriples();
+  }
 }
 
 export default new App({

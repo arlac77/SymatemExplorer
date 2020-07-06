@@ -8,7 +8,7 @@
     active
   } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
-  import { router, session } from "./main.mjs";
+  import { router, TriplesRoute, session } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
@@ -31,7 +31,7 @@
         <Route path="/symbols" component={Symbols}>Symbols</Route>
       </li>
       <li>
-        <Route path="/triples" component={Triples}>Triples</Route>
+        <Route path="/triple" factory={TriplesRoute} component={Triples}>Triples</Route>
       </li>
       <li>
         <Route path="/about" component={About}>About</Route>
@@ -54,7 +54,7 @@
             </div>
           </Menue>
         {:else}
-          <Route path="/login">Login</Route>
+          <Route path="/login" component={Login}>Login</Route>
         {/if}
       </li>
     </ul>
