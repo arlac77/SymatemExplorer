@@ -41,6 +41,7 @@
     "postcss-import": "^12.0.1",
     "rollup": "^2.19.0",
     "rollup-plugin-consts": "^1.0.2",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-dev": "^1.1.2",
     "rollup-plugin-postcss": "^3.1.2",
     "rollup-plugin-svelte": "git+https://github.com/ctavan/rollup-plugin-svelte.git#handle-missing-exports-gracefully",

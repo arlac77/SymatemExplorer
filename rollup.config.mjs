@@ -8,6 +8,8 @@ import svelte from "rollup-plugin-svelte";
 import postcss from "rollup-plugin-postcss";
 import postcssImport from "postcss-import";
 
+import copy from "rollup-plugin-copy";
+
 import { terser } from "rollup-plugin-terser";
 import dev from "rollup-plugin-dev";
 import consts from "rollup-plugin-consts";
@@ -68,7 +70,15 @@ export default () => {
           spa: `${dist}/index.html`,
           basePath: config.base,
           proxy: { [`${config.api}/*`]: [config.proxyTarget, { https: true }] }
-        })
+        }),
+      copy({
+        targets: [
+          {
+            src: "node_modules/SymatemJS/src/backend.wasm",
+            dest: dist
+          }
+        ]
+      })
     ],
     watch: {
       clearScreen: false
