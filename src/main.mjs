@@ -22,9 +22,8 @@ export const router = new BaseRouter([], base);
 export async function fetchSymbols() {}
 
 export async function * fetchTriples() {
-  const backend = await new RustWasmBackend();
-
-  backend.initPredefinedSymbols();
+  const BackendClass = /*SymatemOntologyMixin(SymatemQueryMixin(*/RustWasmBackend/*))*/;
+  const backend = await new BackendClass();
 
   const repositoryNamespace = SymbolInternals.identityOfSymbol(
     backend.createSymbol(backend.metaNamespaceIdentity)
