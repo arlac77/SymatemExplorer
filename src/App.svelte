@@ -28,7 +28,7 @@
     </Route>
     <ul class="left">
       <li>
-        <Route path="/symbols" component={Symbols}>Symbols</Route>
+        <Route path="/symbol" component={Symbols}>Symbols</Route>
       </li>
       <li>
         <Route path="/triple" factory={TriplesRoute} component={Triples}>Triples</Route>
