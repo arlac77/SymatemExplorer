@@ -1,6 +1,5 @@
 <script>
-  import { router } from "../main.mjs";
-
+  export let router;
   const triples = router.routes.find(r => r.path === "/triple");
 </script>
 
