@@ -1,14 +1,26 @@
 <script>
-  import { session, fetchTriples } from "../main.mjs";
+  import { router } from "../main.mjs";
+
+  const triples = router.routes.find(r => r.path === "/triple");
 </script>
 
-{#await fetchTriples()}
-  <p>...fetching</p>
-{:then triples}
-  <svg viewbox="0 0 100 100">
-    <g>
-    </g>
-  </svg>
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await}
+{#if $triples}
+  <table class="bordered striped hoverable">
+    <thead>
+      <tr>
+        <th aria-sort="none">E</th>
+        <th>A</th>
+        <th>V</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each $triples as triple}
+        <tr>
+          <td>{triple[0]}</td>
+          <td>{triple[1]}</td>
+          <td>{triple[2]}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+{:else}No triples{/if}

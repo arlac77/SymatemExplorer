@@ -1,4 +1,8 @@
-import { BaseRouter, Guard, IteratorStoreRoute } from "svelte-guard-history-router";
+import {
+  BaseRouter,
+  Guard,
+  IteratorStoreRoute
+} from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 import base from "consts:base";
@@ -19,10 +23,8 @@ const needsSession = new SessionGuard();
 
 export const router = new BaseRouter([], base);
 
-export async function fetchSymbols() {}
-
-export async function * fetchTriples() {
-  const BackendClass = /*SymatemOntologyMixin(SymatemQueryMixin(*/RustWasmBackend/*))*/;
+export async function* fetchTriples() {
+  const BackendClass = /*SymatemOntologyMixin(SymatemQueryMixin(*/ RustWasmBackend; /*))*/
   const backend = await new BackendClass();
 
   const repositoryNamespace = SymbolInternals.identityOfSymbol(
@@ -44,9 +46,9 @@ export async function * fetchTriples() {
   }
 }
 
-export class TriplesRoute  extends IteratorStoreRoute {
+export class TriplesRoute extends IteratorStoreRoute {
   async *iteratorFor() {
-    yield *fetchTriples();
+    yield* fetchTriples();
   }
 }
 
