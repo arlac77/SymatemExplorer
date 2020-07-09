@@ -1,11 +1,9 @@
 import {
-  BaseRouter,
   Guard,
   IteratorStoreRoute
 } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
-import base from "consts:base";
 
 import { SymbolInternals, RustWasmBackend } from "SymatemJS";
 
@@ -21,10 +19,8 @@ class SessionGuard extends Guard {
 
 const needsSession = new SessionGuard();
 
-export const router = new BaseRouter([], base);
-
-export async function* fetchTriples() {
-  const BackendClass = /*SymatemOntologyMixin(SymatemQueryMixin(*/ RustWasmBackend; /*))*/
+export async function initialize() {
+  const BackendClass = /*SymatemQueryMixin(*/ RustWasmBackend; /*)*/
   const backend = await new BackendClass();
 
   const repositoryNamespace = SymbolInternals.identityOfSymbol(
@@ -37,18 +33,20 @@ export async function* fetchTriples() {
     backend.createSymbol(backend.metaNamespaceIdentity)
   );
 
-  for (const t of backend.queryTriples(backend.queryMasks.VVV, [
-    backend.symbolByName.Void,
-    backend.symbolByName.Void,
-    backend.symbolByName.Void
-  ])) {
-    yield t;
-  }
+  return { backend, repositoryNamespace, modalNamespace, recordingNamespace };
 }
 
 export class TriplesRoute extends IteratorStoreRoute {
   async *iteratorFor() {
-    yield* fetchTriples();
+    const { backend } = await initialize();
+
+    for (const t of backend.queryTriples(backend.queryMasks.VVV, [
+      backend.symbolByName.Void,
+      backend.symbolByName.Void,
+      backend.symbolByName.Void
+    ])) {
+      yield t;
+    }
   }
 }
 

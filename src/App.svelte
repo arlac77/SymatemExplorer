@@ -7,8 +7,10 @@
     link,
     active
   } from "svelte-guard-history-router";
+  import base from "consts:base";
+
   import { Menue } from "svelte-common";
-  import { router, TriplesRoute, session } from "./main.mjs";
+  import { TriplesRoute, session } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
@@ -20,7 +22,7 @@
   }
 </script>
 
-<Router {router}>
+<Router {base}>
   <nav>
     <Route href="/" path="*" component={Home}>
       <img class="logo" src="logo.svg" alt="Symatem Explorer" />
