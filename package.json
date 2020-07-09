@@ -22,6 +22,7 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
+    "@symatem/query": "^3.1.1",
     "SymatemJS": "git+https://github.com/Symatem/SymatemJS.git",
     "buffer": "^5.6.0",
     "mf-styling": "arlac77/mf-styling",

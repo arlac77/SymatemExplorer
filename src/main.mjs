@@ -6,6 +6,7 @@ import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 
 import { SymbolInternals, RustWasmBackend } from "SymatemJS";
+import { SymatemQueryMixin } from "@symatem/query";
 
 export const session = new Session(localStorage);
 
@@ -20,7 +21,7 @@ class SessionGuard extends Guard {
 const needsSession = new SessionGuard();
 
 export async function initialize() {
-  const BackendClass = /*SymatemQueryMixin(*/ RustWasmBackend; /*)*/
+  const BackendClass = SymatemQueryMixin(RustWasmBackend);
   const backend = await new BackendClass();
 
   const repositoryNamespace = SymbolInternals.identityOfSymbol(
@@ -49,6 +50,14 @@ export class TriplesRoute extends IteratorStoreRoute {
     }
   }
 }
+
+/*
+try {
+  backend.decodeJson(
+    await fs.promises.readFile(dumpFileName, defaultEncoding)
+  );
+} catch (e) {}
+*/
 
 export default new App({
   target: document.body
