@@ -32,6 +32,7 @@ export default () => {
       file: `${dist}/bundle.mjs`,
       plugins: [production && terser()]
     },
+    external: ["fs", "crypto", "url"],
     plugins: [
       virtual({
         "node-fetch": "export default fetch",
