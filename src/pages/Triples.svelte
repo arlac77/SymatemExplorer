@@ -1,9 +1,10 @@
 <script>
   export let router;
-  const triples = router.routes.find(r => r.path === "/triple");
+  
+  const route = router.route;
 </script>
 
-{#if $triples}
+{#if $route}
   <table class="bordered striped hoverable">
     <thead>
       <tr>
@@ -13,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each $triples as triple}
+      {#each $route as triple}
         <tr>
           <td>{triple[0]}</td>
           <td>{triple[1]}</td>
