@@ -4,7 +4,7 @@
 		ev.dataTransfer.dropEffect = 'move';
 	}
 		
-	export function drop (ev, new_g) {
+	export function drop (ev) {
 		ev.preventDefault();
 		console.log(ev.dataTransfer);
 		
@@ -40,7 +40,7 @@
 </style>
 
 <div>
-    <div class="drop" on:dragover={dragover} on:drop={event => drop(event, g)}>
+    <div class="drop" on:dragover={dragover} on:drop={event => drop(event)}>
         Drop file here
     </div>
 </div>
