@@ -1,6 +1,7 @@
 import {
   Guard,
-  IteratorStoreRoute
+  IteratorStoreRoute,
+  StoreRoute
 } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
@@ -37,9 +38,17 @@ export async function initialize() {
   return { backend, repositoryNamespace, modalNamespace, recordingNamespace };
 }
 
+export class Backend extends StoreRoute {
+  async objectFor() {
+    const {backend} = await initialize();
+    return backend;
+  }
+}
+
 export class TriplesRoute extends IteratorStoreRoute {
   async *iteratorFor() {
-    const { backend } = await initialize();
+    const backend = this.parent.objectFor();
+    //const { backend } = await initialize();
 
     for (const t of backend.queryTriples(backend.queryMasks.VVV, [
       backend.symbolByName.Void,

@@ -10,11 +10,12 @@
   import base from "consts:base";
 
   import { Menue } from "svelte-common";
-  import { TriplesRoute, session } from "./main.mjs";
+  import { Backend, TriplesRoute, session } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
   import Symbols from "./pages/Symbols.svelte";
+  import Universe from "./pages/Universe.svelte";
   import Login from "./pages/Login.svelte";
 
   function logout() {
@@ -28,17 +29,20 @@
       <img class="logo" src="logo.svg" alt="Symatem Explorer" />
       Symatem Explorer
     </Route>
+    <Route path="/universe" factory={Backend} component={Universe}>
+      Universe
+      <Route path="/symbol" component={Symbols}>Symbols</Route>
+      <Route path="/triple" factory={TriplesRoute} component={Triples}>
+        Triples
+      </Route>
+    </Route>
+
     <ul class="left">
-      <li>
-        <Route path="/symbol" component={Symbols}>Symbols</Route>
-      </li>
-      <li>
-        <Route path="/triple" factory={TriplesRoute} component={Triples}>Triples</Route>
-      </li>
       <li>
         <Route path="/about" component={About}>About</Route>
       </li>
     </ul>
+
     <ul>
       <li>
         {#if $session.isValid}
