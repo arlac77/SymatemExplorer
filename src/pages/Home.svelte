@@ -27,7 +27,7 @@
 </style>
 
 <div>
-    <div class="drop" on:dragover={dragover} on:drop={event => drop(event, g)>
+    <div class="drop" on:dragover={dragover} on:drop={event => drop(event, g)}>
         Drop file here
     </div>
 </div>
