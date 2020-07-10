@@ -8,6 +8,19 @@
 		ev.preventDefault();
 		console.log(ev.dataTransfer);
 		
+		if (ev.dataTransfer.items) {
+          for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+            if (ev.dataTransfer.items[i].kind === 'file') {
+              let file = ev.dataTransfer.items[i].getAsFile();
+              console.log('A ... file[' + i + '].name = ' + file.name);
+            }
+          }
+        } else {
+          for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+            console.log('B ... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+          }
+        }
+
 		/*
 		const i = ev.dataTransfer.getData("item");
 		const old_g = ev.dataTransfer.getData("group");
