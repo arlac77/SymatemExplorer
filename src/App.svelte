@@ -29,15 +29,15 @@
       <img class="logo" src="logo.svg" alt="Symatem Explorer" />
       Symatem Explorer
     </Route>
-    <Route path="/universe" factory={Backend} component={Universe}>
-      Universe
-      <Route path="/symbol" component={Symbols}>Symbols</Route>
-      <Route path="/triple" factory={TriplesRoute} component={Triples}>
-        Triples
-      </Route>
-    </Route>
 
     <ul class="left">
+      <li>
+        <Route path="/universe" factory={Backend} component={Universe}>
+          Universe
+          <Route path="/symbol" component={Symbols} />
+          <Route path="/triple" factory={TriplesRoute} component={Triples} />
+        </Route>
+      </li>
       <li>
         <Route path="/about" component={About}>About</Route>
       </li>

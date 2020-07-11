@@ -1,4 +1,5 @@
 <script>
+  import { Link } from "svelte-guard-history-router";
 
   export let router;
 
@@ -23,7 +24,7 @@
             file.type
           );
 
-         // backend.decodeJson(await file.text());
+          // backend.decodeJson(await file.text());
 
           console.log(await file.text());
         }
@@ -45,3 +46,5 @@
     Drop file here
   </div>
 </div>
+
+<Link href="/universe/triple">Triples</Link>
