@@ -3,18 +3,19 @@
   import {
     Router,
     Route,
-    Outlet,
-    link,
-    active
+    ChildStoreRoute,
+    Outlet
   } from "svelte-guard-history-router";
   import base from "consts:base";
 
   import { Menue } from "svelte-common";
-  import { Backend, TriplesRoute, session } from "./main.mjs";
+  import { Backend, SymbolsRoute, TriplesRoute, session } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
   import Symbols from "./pages/Symbols.svelte";
+  import SymbolPage from "./pages/Symbol.svelte";
+  import SymbolLink from "./SymbolLink.svelte";
   import Universe from "./pages/Universe.svelte";
   import Login from "./pages/Login.svelte";
 
@@ -34,7 +35,13 @@
       <li>
         <Route path="/universe" factory={Backend} component={Universe}>
           Universe
-          <Route path="/symbol" component={Symbols} />
+          <Route path="/symbol" factory={SymbolsRoute} component={Symbols}>
+            <Route
+              path="/:symbol"
+              factory={ChildStoreRoute}
+              linkComponent={SymbolLink}
+              component={SymbolPage} />
+          </Route>
           <Route path="/triple" factory={TriplesRoute} component={Triples} />
         </Route>
       </li>

@@ -50,6 +50,13 @@ export class TriplesRoute extends IteratorStoreRoute {
   }
 }
 
+export class SymbolsRoute extends IteratorStoreRoute {
+  async *iteratorFor() {
+    const backend = await this.parent.objectFor();
+    yield *backend.querySymbols();
+  }
+}
+
 export default new App({
   target: document.body
 });
