@@ -10,7 +10,7 @@ import { SymbolInternals, RustWasmBackend } from "SymatemJS";
 import { SymatemQueryMixin } from "@symatem/query";
 
 export const session = new Session(localStorage);
-export const enshureSession = redirectGuard("/login",() => !session.isValid);
+export const enshureSession = redirectGuard("/login", () => !session.isValid);
 
 export async function initialize() {
   const BackendClass = SymatemQueryMixin(RustWasmBackend);
@@ -31,7 +31,7 @@ export async function initialize() {
 
 export class Backend extends SkeletonRoute {
   async objectFor() {
-    const {backend} = await initialize();
+    const { backend } = await initialize();
     return backend;
   }
 }
@@ -53,7 +53,7 @@ export class TriplesRoute extends IteratorStoreRoute {
 export class SymbolsRoute extends IteratorStoreRoute {
   async *iteratorFor() {
     const backend = await this.parent.objectFor();
-    yield *backend.querySymbols();
+    yield* backend.querySymbols();
   }
 }
 
