@@ -9,7 +9,7 @@
   import base from "consts:base";
 
   import { Menue } from "svelte-common";
-  import { Backend, SymbolsRoute, TriplesRoute, session } from "./main.mjs";
+  import { backendObject, SymbolsRoute, TriplesRoute, session } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
@@ -33,7 +33,7 @@
 
     <ul class="left">
       <li>
-        <Route path="/universe" factory={Backend} component={Universe}>
+        <Route path="/universe" objectFor={backendObject} component={Universe}>
           Universe
           <Route path="/symbol" factory={SymbolsRoute} component={Symbols}>
             <Route

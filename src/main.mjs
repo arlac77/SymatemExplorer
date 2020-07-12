@@ -1,7 +1,6 @@
 import {
   redirectGuard,
-  IteratorStoreRoute,
-  SkeletonRoute
+  IteratorStoreRoute
 } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
@@ -29,11 +28,9 @@ export async function initialize() {
   return { backend, repositoryNamespace, modalNamespace, recordingNamespace };
 }
 
-export class Backend extends SkeletonRoute {
-  async objectFor() {
-    const { backend } = await initialize();
-    return backend;
-  }
+export async function backendObject() {
+  const { backend } = await initialize();
+  return backend;
 }
 
 export class TriplesRoute extends IteratorStoreRoute {
