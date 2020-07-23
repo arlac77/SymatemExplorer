@@ -7,9 +7,13 @@
     Outlet
   } from "svelte-guard-history-router";
   import base from "consts:base";
-
   import { Menue } from "svelte-common";
-  import { backendObject, SymbolsRoute, TriplesRoute, session } from "./main.mjs";
+  import {
+    backendObject,
+    SymbolsRoute,
+    TriplesRoute,
+    session
+  } from "./main.mjs";
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Triples from "./pages/Triples.svelte";
