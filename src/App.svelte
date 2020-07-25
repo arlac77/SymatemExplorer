@@ -22,10 +22,6 @@
   import SymbolLink from "./SymbolLink.svelte";
   import Universe from "./pages/Universe.svelte";
   import Login from "./pages/Login.svelte";
-
-  function logout() {
-    session.invalidate();
-  }
 </script>
 
 <Router {base}>
@@ -63,7 +59,7 @@
               <a
                 href="/"
                 class="dropdown-item"
-                on:click|preventDefault={logout}>
+                on:click|preventDefault={() => session.invalidate()}>
                 Logout {$session.username}
               </a>
               <div class="dropdown-divider" />
