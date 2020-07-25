@@ -6,6 +6,7 @@
   import api from "consts:api";
   import base from "consts:base";
   import name from "consts:name";
+  import { serviceWorker } from "../main.mjs";
 </script>
 
 <div>
@@ -26,13 +27,17 @@
         <td>{api}</td>
       </tr>
       <tr>
+        <td>Service Worker</td>
+        <td>{$serviceWorker.state}</td>
+      </tr>
+      <tr>
         <td>Username</td>
         <td>{$session.username}</td>
       </tr>
       <tr>
         <td>Session Expiration</td>
         <td class={$session.isValid ? 'ok' : 'error'}>
-          <DateTime date={$session.expirationDate}/>
+          <DateTime date={$session.expirationDate} />
         </td>
       </tr>
       <tr>
