@@ -67,7 +67,7 @@ export default () => {
         }),
         svelte({
           dev: !production,
-          css: css => css.write(`${bundlePrefix}svelte.css`)
+          emitCss: true
         }),
         ...resolverPlugins,
         !production &&
