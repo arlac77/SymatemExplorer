@@ -37,16 +37,17 @@ export default () => {
       ...config
     })
   ];
-  
+
   const resolverPlugins = [
     resolve({
       browser: true,
       preferBuiltins: false,
-      dedupe: importee => importee === "svelte" || importee.startsWith("svelte/")
+      dedupe: importee =>
+        importee === "svelte" || importee.startsWith("svelte/")
     }),
     commonjs()
   ];
-  
+
   return [
     {
       input: "src/main.mjs",
@@ -61,7 +62,7 @@ export default () => {
         ...prePlugins,
         postcss({
           extract: true,
-          sourcemap: true,
+          sourceMap: true,
           minimize: production,
           plugins: [postcssImport]
         }),
@@ -70,16 +71,16 @@ export default () => {
           emitCss: true
         }),
         copy({
-         targets: [
-           {
-             src: "node_modules/SymatemJS/src/backend.wasm",
-             dest: dist
-           },
-           {
-             src: "node_modules/SymatemJS/src/blake2.wasm",
-             dest: dist
-           }
-         ]
+          targets: [
+            {
+              src: "node_modules/SymatemJS/src/backend.wasm",
+              dest: dist
+            },
+            {
+              src: "node_modules/SymatemJS/src/blake2.wasm",
+              dest: dist
+            }
+          ]
         }),
         ...resolverPlugins,
         !production &&
