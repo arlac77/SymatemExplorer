@@ -3,7 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import virtual from "@rollup/plugin-virtual";
 import inject from "@rollup/plugin-inject";
-
+import copy from "rollup-plugin-copy";
 import svelte from "rollup-plugin-svelte";
 import postcss from "rollup-plugin-postcss";
 import postcssImport from "postcss-import";
@@ -68,6 +68,18 @@ export default () => {
         svelte({
           dev: !production,
           emitCss: true
+        }),
+        copy({
+         targets: [
+           {
+             src: "node_modules/SymatemJS/src/backend.wasm",
+             dest: dist
+           },
+           {
+             src: "node_modules/SymatemJS/src/blake2.wasm",
+             dest: dist
+           }
+         ]
         }),
         ...resolverPlugins,
         !production &&
