@@ -11,3 +11,4 @@ public/bundle.*
 *.js.map
 *.mjs.map
 *.wasm
+bundle.*
