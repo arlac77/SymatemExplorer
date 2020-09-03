@@ -6,9 +6,7 @@ doc
 .tmp
 .test
 .vscode
-*.js.map
-*.mjs.map
 rollup.config.*
-*.css.map
 .github
 *.wasm
+*.map
