@@ -19,14 +19,6 @@
         <td>{version}</td>
       </tr>
       <tr>
-        <td>Mounted</td>
-        <td>{base}</td>
-      </tr>
-      <tr>
-        <td>API</td>
-        <td>{api}</td>
-      </tr>
-      <tr>
         <td>Service Worker</td>
         <td>{$serviceWorker.state}</td>
       </tr>
