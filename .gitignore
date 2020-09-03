@@ -6,8 +6,6 @@ node_modules
 *.dump
 *.node
 .test
-*.css.map
-*.js.map
-*.mjs.map
 *.wasm
 bundle.*
+*.map
