@@ -1,8 +1,5 @@
 import { readable } from "svelte/store";
-import {
-  redirectGuard,
-  IteratorStoreRoute
-} from "svelte-guard-history-router";
+import { redirectGuard, IteratorStoreRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 
@@ -29,13 +26,13 @@ export async function initialize() {
   return { backend, repositoryNamespace, modalNamespace, recordingNamespace };
 }
 
-export async function backendObject(transition,properties) {
+export async function backendObject(transition, properties) {
   const { backend } = await initialize();
   return backend;
 }
 
 export class TriplesRoute extends IteratorStoreRoute {
-  async *iteratorFor(transition,properties) {
+  async *iteratorFor(transition, properties) {
     const backend = await this.parent.objectFor();
 
     for (const t of backend.queryTriples(backend.queryMasks.VVV, [
@@ -49,12 +46,11 @@ export class TriplesRoute extends IteratorStoreRoute {
 }
 
 export class SymbolsRoute extends IteratorStoreRoute {
-  async *iteratorFor(transition,properties) {
+  async *iteratorFor(transition, properties) {
     const backend = await this.parent.objectFor();
     yield* backend.querySymbols();
   }
 }
-
 
 let serviceWorkerRegistration;
 
