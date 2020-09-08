@@ -292,10 +292,10 @@
     lodash "^4.17.4"
     read-pkg-up "^7.0.0"
 
-"@symatem/query@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@symatem/query/-/query-3.1.1.tgz#fbbdd6be0d61985d0c0e5caed8dac63e426d21fd"
-  integrity sha512-EY0923h8H0EGQH3eHp/xGgDj/eoBLvmAkz+IlDdzcS+pa2rOa0u+pcGpvcVXjXXP87DB70G/VQaUbc3ACMVvaQ==
+"@symatem/query@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@symatem/query/-/query-3.1.2.tgz#d2141a7f8095fd56d48c7daffb89660a53fbe5ca"
+  integrity sha512-Hq5DZ23oue+PCgonRdmpHEYiDe7vFj+so1Dot8RyebosYoBgnCU63cO1eDfgrIJSpO7pTXz7TknHilbk6xPbDQ==
   dependencies:
     SymatemJS "git+https://github.com/Symatem/SymatemJS.git"
 
