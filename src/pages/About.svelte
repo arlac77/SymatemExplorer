@@ -1,5 +1,5 @@
 <script>
-  import { About, SessionDetails } from "svelte-common";
+  import { About, SessionDetails, ServiceWorkerDetails } from "svelte-common";
   import { session } from "../main.mjs";
   import version from "consts:version";
   import description from "consts:description";
@@ -10,9 +10,6 @@
 </script>
 
 <About {name} {version} {description}>
-  <tr>
-    <td>Service Worker</td>
-    <td colspan="2">{$serviceWorker.state}</td>
-  </tr>
+  <ServiceWorkerDetails serviceWorker={$serviceWorker} />
   <SessionDetails session={$session} />
 </About>
