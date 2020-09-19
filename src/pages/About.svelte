@@ -5,8 +5,7 @@
     SessionDetails,
     ServiceWorkerDetails
   } from "svelte-common";
-  import { session } from "../main.mjs";
-  import { serviceWorker } from "../main.mjs";
+  import { session, serviceWorker } from "../main.mjs";
   import version from "consts:version";
   import description from "consts:description";
   import name from "consts:name";

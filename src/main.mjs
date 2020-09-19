@@ -1,4 +1,4 @@
-import { readable } from "svelte/store";
+import { initializeServiceWorker } from "svelte-common";
 import { redirectGuard, IteratorStoreRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
@@ -52,27 +52,8 @@ export class SymbolsRoute extends IteratorStoreRoute {
   }
 }
 
-let serviceWorkerRegistration;
-
-export const serviceWorker = readable({ state: "initial" }, set => {
-  for (const state of ["installing", "waiting", "active"]) {
-    const sw = serviceWorkerRegistration[state];
-    if (sw) {
-      set({ state: sw.state });
-      sw.onstatechange = event => set({ state: event.target.state });
-    }
-  }
-
-  return () => {};
-});
-
-async function init() {
-  serviceWorkerRegistration = await navigator.serviceWorker.register(
-    "bundle.service-worker.mjs"
-  );
-}
-
-init();
+const { serviceWorker } = initializeServiceWorker("bundle.service-worker.mjs");
+export { serviceWorker };
 
 export default new App({
   target: document.body
