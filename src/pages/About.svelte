@@ -3,9 +3,10 @@
     About,
     ApplicationDetails,
     SessionDetails,
-    ServiceWorkerDetails
+    ServiceWorkerDetails,
+    ServiceWorkerRegistrationDetails
   } from "svelte-common";
-  import { session, serviceWorker } from "../main.mjs";
+  import { session, serviceWorker, serviceWorkerRegistration } from "../main.mjs";
   import version from "consts:version";
   import description from "consts:description";
   import name from "consts:name";
@@ -13,6 +14,7 @@
 
 <About>
   <ApplicationDetails {name} {version} {description} />
-  <ServiceWorkerDetails serviceWorker={$serviceWorker} />
   <SessionDetails session={$session} />
+  <ServiceWorkerDetails serviceWorker={$serviceWorker}  />
+  <ServiceWorkerRegistrationDetails serviceWorkerRegistration={$serviceWorkerRegistration} />
 </About>

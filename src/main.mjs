@@ -52,8 +52,8 @@ export class SymbolsRoute extends IteratorStoreRoute {
   }
 }
 
-const { serviceWorker } = initializeServiceWorker("bundle.service-worker.mjs");
-export { serviceWorker };
+const { serviceWorker, serviceWorkerRegistration } = initializeServiceWorker("bundle.service-worker.mjs");
+export { serviceWorker, serviceWorkerRegistration };
 
 export default new App({
   target: document.body
