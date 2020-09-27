@@ -59,10 +59,10 @@
   },
   "homepage": "https://github.com/arlac77/SymatemExplorer#readme",
   "config": {
-    "title": "Symatem",
     "api": "/services/SymatemExplorer/api",
     "base": "/services/SymatemExplorer",
-    "proxyTarget": "https://mfelten.dynv6.net/"
+    "proxyTarget": "https://mfelten.dynv6.net/",
+    "title": "Symatem"
   },
   "pacman": {
     "groups": "service",
