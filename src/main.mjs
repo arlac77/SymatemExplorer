@@ -3,7 +3,7 @@ import { redirectGuard, IteratorStoreRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 
-import { SymbolInternals, RustWasmBackend } from "SymatemJS";
+import { SymbolInternals, RustWasmBackend } from "@symatem/core";
 import { SymatemQueryMixin } from "@symatem/query";
 
 export const session = new Session(localStorage);
