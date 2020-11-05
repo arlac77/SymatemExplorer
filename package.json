@@ -24,7 +24,7 @@
   "dependencies": {
     "@symatem/core": "^0.0.8",
     "@symatem/query": "^3.1.12",
-    "buffer": "^5.6.0",
+    "buffer": "^6.0.1",
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^2.19.0",
     "svelte-guard-history-router": "^3.3.0",
