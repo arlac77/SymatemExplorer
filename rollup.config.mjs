@@ -1,16 +1,15 @@
-import livereload from 'rollup-plugin-livereload';
 import { readFileSync } from "fs";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import virtual from "@rollup/plugin-virtual";
-import inject from "@rollup/plugin-inject";
-import copy from "rollup-plugin-copy";
+
 import svelte from "rollup-plugin-svelte";
 import postcss from "rollup-plugin-postcss";
 import postcssImport from "postcss-import";
 
 import { terser } from "rollup-plugin-terser";
 import dev from "rollup-plugin-dev";
+import livereload from "rollup-plugin-livereload";
 import consts from "rollup-plugin-consts";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -18,97 +17,83 @@ const dist = "public";
 const bundlePrefix = `${dist}/bundle.`;
 const port = 5000;
 
-export default () => {
-  const { name, description, version, config } = JSON.parse(
-    readFileSync("./package.json", { endoding: "utf8" })
-  );
+const { name, description, version, config } = JSON.parse(
+  readFileSync("./package.json", { endoding: "utf8" })
+);
 
-  const prePlugins = [
-    virtual({
-      "node-fetch": "export default fetch",
-      stream: "export class Readable {}"
-    }),
-    inject({
-      Buffer: ["buffer", "Buffer"]
-    }),
-    consts({
-      name,
-      version,
-      description,
-      ...config
-    })
-  ];
+const external = ["fs/promises", "crypto"];
 
-  const resolverPlugins = [
-    resolve({
-      browser: true,
-      preferBuiltins: false,
-      dedupe: importee =>
-        importee === "svelte" || importee.startsWith("svelte/")
-    }),
-    commonjs()
-  ];
+const prePlugins = [
+  virtual({
+    "node-fetch": "export default fetch",
+    stream: "export class Readable {}"
+  }),
+  consts({
+    name,
+    version,
+    description,
+    ...config
+  })
+];
 
-  return [
-    {
-      input: "src/main.mjs",
-      output: {
-        interop: false,
-        sourcemap: true,
-        format: "esm",
-        file: `${bundlePrefix}main.mjs`,
-        plugins: [production && terser({ keep_classnames: true })]
-      },
-      plugins: [
-        ...prePlugins,
-        postcss({
-          extract: true,
-          sourceMap: true,
-          minimize: production,
-          plugins: [postcssImport]
-        }),
-        svelte({
-          dev: !production,
-          emitCss: true
-        }),
-        copy({
-          targets: [
-            {
-              src: "node_modules/SymatemJS/src/backend.wasm",
-              dest: dist
-            },
-            {
-              src: "node_modules/SymatemJS/src/blake2.wasm",
-              dest: dist
-            }
-          ]
-        }),
-        ...resolverPlugins,
-        !production &&
-          dev({
-            port,
-            dirs: [dist],
-            spa: `${dist}/index.html`,
-            basePath: config.base,
-            proxy: {
-              [`${config.api}/*`]: [config.proxyTarget, { https: true }]
-            }
-          })
-      ],
-      watch: {
-        clearScreen: false
-      }
-    },
-    {
-      input: "src/service-worker.mjs",
-      output: {
-        interop: false,
-        sourcemap: true,
-        format: "esm",
-        file: `${bundlePrefix}service-worker.mjs`,
-        plugins: [production && terser()]
-      },
-      plugins: [...prePlugins, ...resolverPlugins]
-    }
-  ];
+const resolverPlugins = [
+  resolve({
+    browser: true,
+    preferBuiltins: false,
+    dedupe: importee => importee === "svelte" || importee.startsWith("svelte/")
+  }),
+  commonjs()
+];
+
+const output = {
+  interop: false,
+  sourcemap: true,
+  format: "esm",
+  file: `${bundlePrefix}main.mjs`,
+  plugins: [production && terser()]
 };
+
+export default [
+  {
+    input: "src/main.mjs",
+    output,
+    plugins: [
+      ...prePlugins,
+      postcss({
+        extract: true,
+        sourceMap: true,
+        minimize: production,
+        plugins: [postcssImport]
+      }),
+      svelte({
+        dev: !production,
+        emitCss: true
+      }),
+      ...resolverPlugins,
+      !production && livereload(dist),
+      !production &&
+        dev({
+          port,
+          dirs: [dist],
+          spa: `${dist}/index.html`,
+          basePath: config.base,
+          proxy: {
+            [`${config.api}/*`]: [config.proxyTarget, { https: true }]
+          }
+        })
+    ],
+    external,
+    watch: {
+      clearScreen: false
+    }
+  },
+  {
+    input: "src/service-worker.mjs",
+    output: {
+      ...output,
+      file: `${bundlePrefix}service-worker.mjs`
+    },
+    plugins: [...prePlugins, ...resolverPlugins],
+    external
+  }
+];
