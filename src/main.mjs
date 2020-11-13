@@ -1,5 +1,5 @@
 import { initializeServiceWorker } from "svelte-common";
-import { redirectGuard, IteratorStoreRoute } from "svelte-guard-history-router";
+import { redirectGuard, MasterRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
 
@@ -31,7 +31,7 @@ export async function backendObject(transition) {
   return backend;
 }
 
-export class TriplesRoute extends IteratorStoreRoute {
+export class TriplesRoute extends MasterRoute {
   async *iteratorFor(transition) {
     const backend = await this.parent.objectFor(transition);
 
@@ -45,7 +45,7 @@ export class TriplesRoute extends IteratorStoreRoute {
   }
 }
 
-export class SymbolsRoute extends IteratorStoreRoute {
+export class SymbolsRoute extends MasterRoute {
   async *iteratorFor(transition) {
     const backend = await this.parent.objectFor(transition);
     yield* backend.querySymbols();

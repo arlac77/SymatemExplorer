@@ -3,7 +3,7 @@
   import {
     Router,
     Route,
-    ChildStoreRoute,
+    DetailRoute,
     Outlet
   } from "svelte-guard-history-router";
   import base from "consts:base";
@@ -38,7 +38,7 @@
           <Route path="/symbol" factory={SymbolsRoute} component={Symbols}>
             <Route
               path="/:symbol"
-              factory={ChildStoreRoute}
+              factory={DetailRoute}
               linkComponent={SymbolLink}
               component={SymbolPage} />
           </Route>
