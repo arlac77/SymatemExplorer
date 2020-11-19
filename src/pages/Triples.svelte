@@ -2,9 +2,10 @@
   export let router;
   
   const route = router.route;
+  const triples = $route.value;
 </script>
 
-{#if $route}
+{#if triples}
   <table class="bordered striped hoverable">
     <thead>
       <tr>
@@ -14,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each $route as triple}
+      {#each triples as triple}
         <tr>
           <td>{triple[0]}</td>
           <td>{triple[1]}</td>

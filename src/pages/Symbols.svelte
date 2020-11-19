@@ -6,9 +6,11 @@
   export let router;
   
   const route = router.route;
+  const symbols = $route.value;
+
 </script>
 
-{#if $route}
+{#if symbols}
   <table class="bordered striped hoverable">
     <thead>
       <tr>
@@ -16,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each $route as symbol}
+      {#each symbols as symbol}
         <tr>
           <td>{symbol}</td>
           <td><ObjectLink object={symbol}/></td>
