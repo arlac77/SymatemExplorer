@@ -1,7 +1,7 @@
-import { initializeServiceWorker } from "svelte-common";
 import { redirectGuard, MasterRoute } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
 import App from "./App.svelte";
+import {} from "./service-worker/registration.mjs";
 
 import { SymbolInternals, RustWasmBackend } from "@symatem/core";
 import { SymatemQueryMixin } from "@symatem/query";
@@ -51,9 +51,6 @@ export class SymbolsRoute extends MasterRoute {
     yield* backend.querySymbols();
   }
 }
-
-const { serviceWorker, serviceWorkerRegistration } = initializeServiceWorker("bundle.service-worker.mjs");
-export { serviceWorker, serviceWorkerRegistration };
 
 export default new App({
   target: document.body
