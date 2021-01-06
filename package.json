@@ -75,7 +75,7 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "nginx-mainline": ">=1.19.3"
+      "nginx-mainline": ">=1.19.6"
     }
   },
   "release": {
