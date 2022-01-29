@@ -26,8 +26,8 @@
     "@symatem/query": "^3.1.12",
     "buffer": "^6.0.1",
     "mf-styling": "arlac77/mf-styling",
-    "svelte-common": "^4.4.18",
-    "svelte-guard-history-router": "^4.5.1",
+    "svelte-common": "^4.4.19",
+    "svelte-guard-history-router": "^4.5.2",
     "svelte-session-manager": "^2.0.10"
   },
   "devDependencies": {
