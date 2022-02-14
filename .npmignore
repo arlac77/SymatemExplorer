@@ -10,3 +10,4 @@ rollup.config.*
 .github
 *.wasm
 *.map
+pkg
